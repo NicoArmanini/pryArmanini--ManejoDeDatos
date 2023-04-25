@@ -75,8 +75,8 @@ namespace pryArmanini__ManejoDeDatos
             this.Close();
         }
 
-        //private void frmPrincipal_Load(object sender, EventArgs e)
-        //{
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
             //sacar datos de un archivo
 
 
@@ -95,6 +95,6 @@ namespace pryArmanini__ManejoDeDatos
 
             //leerArchivo.Close();
             //manejoArchivo.Close();
-        //}
+        }
     }
 }
