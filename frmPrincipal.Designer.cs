@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.txtDatoABuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtGrabar = new System.Windows.Forms.TextBox();
@@ -41,7 +42,7 @@
             // txtDatoABuscar
             // 
             this.txtDatoABuscar.Location = new System.Drawing.Point(37, 384);
-            this.txtDatoABuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDatoABuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatoABuscar.Name = "txtDatoABuscar";
             this.txtDatoABuscar.Size = new System.Drawing.Size(302, 22);
             this.txtDatoABuscar.TabIndex = 4;
@@ -49,7 +50,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(375, 376);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(116, 38);
             this.btnBuscar.TabIndex = 5;
@@ -127,7 +128,8 @@
             this.Controls.Add(this.txtGrabar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtDatoABuscar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPrincipal";
             this.Text = "Manejo de Datos";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
