@@ -18,32 +18,37 @@ namespace pryArmanini__ManejoDeDatos
             InitializeComponent();
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
+        private void btnGrabar_Click(object sender, EventArgs e)
         {
-            //sacar datos de un archivo
 
-
-            //ABRIR O CREAR UN ARCHIVO
-           // StreamWriter manejoArchivo = new StreamWriter("LIBRO1.txt");
-
-            StreamReader leerArchivo = new StreamReader("LIBRO1.txt");
-
-            while (leerArchivo.EndOfStream == false)
+            StreamWriter manejoArchivo = new StreamWriter("ArchivoDatos.txt", true);
+            string Texto = txtGrabar.Text;
+            using (StreamWriter mA = manejoArchivo)
             {
-               
-                lblDatos.Text += leerArchivo.ReadLine() + "/n";
-                //lblDatos.Text = lblDatos.Text + leerArchivo.ReadLine();
-                //es lo mismo que lo de arriba
+                mA.WriteLine(Texto);
             }
+            MessageBox.Show("Archivo Guardado con EXITO!!");
 
-            leerArchivo.Close();
-           // manejoArchivo.Close();
+            txtGrabar.Clear();
+        }
+
+        private void btnLeer_Click(object sender, EventArgs e)
+        {
+
+            StreamReader ManejoArchivo = new StreamReader("ArchivoDatos.txt");
+            using (StreamReader mA = new StreamReader("ArchivoDatos.txt"))
+            {
+                string Contenido = mA.ReadToEnd();
+                rtbDatos.Text = Contenido;
+            }
+            MessageBox.Show("Leido Correctamente");
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            StreamReader leerArchivo = new StreamReader("LIBRO1.txt");
+            StreamReader leerArchivo = new StreamReader("ArchivoDatos.txt");
 
             while (leerArchivo.EndOfStream == false)
             {
@@ -51,18 +56,45 @@ namespace pryArmanini__ManejoDeDatos
                 //buscar dentro del stream / texto
                 if (auxiliar.Contains(txtDatoABuscar.Text))
                 {
-                    lblDatos.Text = "Encntrado";
-                    lblDatos.Text += auxiliar;
+                    rtbDatos.Text = "Encntrado con EXITO!! ";
+                    rtbDatos.Text += auxiliar;
                     break;
                 }
                 else
                 {
-                    lblDatos.Text = "NO PASA NARANJA";
+                    rtbDatos.Text = "No se encuentra este ARCHIVO" + " || " + " Revise que este bien escrito!!";
                 }
             }
 
             leerArchivo.Close();
-            
+
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //private void frmPrincipal_Load(object sender, EventArgs e)
+        //{
+            //sacar datos de un archivo
+
+
+            //ABRIR O CREAR UN ARCHIVO
+            //StreamWriter manejoArchivo = new StreamWriter("LIBRO1.txt");
+
+            //StreamReader leerArchivo = new StreamReader("LIBRO1.txt");
+
+            //while (leerArchivo.EndOfStream == false)
+            //{
+
+            //    lblDatos.Text += leerArchivo.ReadLine() + "/n";
+            //    lblDatos.Text = lblDatos.Text + leerArchivo.ReadLine();
+            //    es lo mismo que lo de arriba
+            //}
+
+            //leerArchivo.Close();
+            //manejoArchivo.Close();
+        //}
     }
 }
